@@ -1,0 +1,38 @@
+body {
+    background-color: black;
+    color: #ffffff;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    font-size: 12pt;
+}
+
+header h1 {
+    text-transform: uppercase;
+}
+
+nav {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    text-align: center;
+}
+
+nav li{
+    display: inline;
+    padding: 25px 25px 10px 10px;
+    margin: 10px 10px 0 0;
+    background-color: black;
+    border-radius: 5px;
+}
+
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover{
+    text-decoration: underline;
+    color: gold;
+}

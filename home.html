@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Evie's Music Room</title>
+        
+        <!-- Base styles -->
+        <link rel="stylesheet" href="styles/base_style.css">
+
+        <!-- Home page specific styles -->
+        <link rel="stylesheet" href="styles/home.css">
+        
+        <!-- Home page Javascript -->
+        <script src="home.js" defer></script>
+    </head>
+
+    <body>
+        <header>
+            <h1>Beyonce</h1>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="discography.html">Discography</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Hero / Banner -->
+            <section id="gallery"></section>
+            <!-- Base Intro --> 
+                <section class="home-section">
+                    <p>
+                        Beyoncé Giselle Knowles-Carter (born September 4, 1981) is an American singer, songwriter, actress, and businesswoman. Known for her vocal ability, artistic reinventions, and live performances, she is widely regarded as one of the most culturally significant figures of the 21st century. Credited with shaping popular music, Beyoncé is often deemed one of the greatest entertainers of all time.
+                    </p>
+                </section>
+                <!-- Awards and Honours -->
+                 <section class="home-section">
+                    <div class="awards">
+                        <ul>
+                            <li>35 Grammy Awards</li>
+                            <li>99 Grammy Nominations</li>
+                            <li>200 Million Records Worldwide</li>
+                            <li>Most RIAA Certified Female Artist</li>
+                        </ul>
+                    </div>
+                 </section>
+
+            <!-- Current Fav Song (look like spotify song playing) -->
+            <h1> Evie's Current Favourite Song </h1>
+
+            <div class="current-favourite-song">
+                <div class="song-image">
+                    <img src="images/Beyoncé_-_Cowboy_Carter.png" alt="Beyonce_Cowboy_Carter" width="200">
+                </div>
+    
+                <div class="song-controls">
+                    <h2 id="favourite-song-title">
+                        Ya-Ya
+                    </h2>
+
+                    <progress id="song" max="100" value="70"></progress>
+                    
+                    <div class="song-buttons">
+                        <span class="icon icon--previous">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-svg">
+                                <path d="M9.195 18.44c1.25.714 2.805-.189 2.805-1.629v-2.34l6.945 3.968c1.25.715 2.805-.188 2.805-1.628V8.69c0-1.44-1.555-2.343-2.805-1.628L12 11.029v-2.34c0-1.44-1.555-2.343-2.805-1.628l-7.108 4.061c-1.26.72-1.26 2.536 0 3.256l7.108 4.061Z" />
+                            </svg>  
+                        </span>
+                        
+                        <span class="icon icon--play">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-svg">
+                                <path fill-rule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clip-rule="evenodd" />
+                            </svg>                  
+                        </span>
+            
+                        <span class="icon icon--next">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="icon-svg">
+                                <path d="M5.055 7.06C3.805 6.347 2.25 7.25 2.25 8.69v8.122c0 1.44 1.555 2.343 2.805 1.628L12 14.471v2.34c0 1.44 1.555 2.343 2.805 1.628l7.108-4.061c1.26-.72 1.26-2.536 0-3.256l-7.108-4.061C13.555 6.346 12 7.249 12 8.689v2.34L5.055 7.061Z" />
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+
+        </main>
+
+        <footer>
+            <div id="copywrite">
+                <p>&copy; 2025 My Assignment Website</p>
+            </div>
+        </footer>
+    </body>
+</html>
