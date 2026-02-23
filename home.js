@@ -1,4 +1,4 @@
-window.onload = () => {
+window.addEventListener("load", () => {
     const galleryImages = [
         {
             src: "https://hips.hearstapps.com/hmg-prod/images/beyonce-superbowl-6842f55d6c927.jpg?crop=1.00xw:0.667xh;0,0.207xh&resize=1120:*",
@@ -27,23 +27,23 @@ window.onload = () => {
         alt: "Beyonce Cowboy Carter"
     }; 
     
-    setFavouriteSong(favouriteSong);}
+    setFavouriteSong(favouriteSong);
+});
 
 function renderGallery(images, elementId) {
     let output = ""; 
 
     for (const image of images) { 
         output += ` 
-        <div class="responsive">
-        <div class="gallery"> 
+        <div class="gallery-item"> 
             <img src="${image.src}" alt="${image.alt}"> 
-        </div> 
         </div> 
         `; 
     } 
 
     document.getElementById(elementId).innerHTML = output;
 }
+
 
 function setFavouriteSong(song) {
     document.getElementById("fav-song-title").textContent = song.title;
