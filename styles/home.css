@@ -1,0 +1,142 @@
+main.container {
+    padding-top: 1.5rem;
+}
+
+.gallery {
+    margin-top: 1rem;
+}
+
+.home-section {
+    position: relative;
+    padding: 1.25rem 2rem;
+    border-radius: 24px;
+    background: #111;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    text-align: left;
+}
+
+.home-section::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border-radius: inherit;
+    background: #1a1a1a;
+    filter: blur(12px);
+    z-index: -1;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+.gallery-item {
+    flex: 1 1 calc(25% - 12px);
+    max-width: calc(25% - 12px);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.awards ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.awards li {
+    padding: 0.25rem 0;
+}
+
+.favourite-song {
+    text-align: center;
+    padding: 2rem;
+}
+
+.vinyl-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.album-art img {
+    width: 180px;
+    border-radius: 12px;
+    border: 3px solid white;
+}
+
+.vinyl {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #333 40%, #111 70%);
+    position: relative;
+    animation: spin 6s linear infinite;
+    border: 2px solid #f7d23e;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+}
+
+.vinyl::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: repeating-radial-gradient(
+        circle,
+        rgba(255,255,255,0.08) 0px,
+        rgba(255,255,255,0.08) 1px,
+        transparent 2px,
+        transparent 4px
+    );
+    mix-blend-mode: overlay;
+}
+
+.vinyl::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: linear-gradient(
+        120deg,
+        rgba(255,255,255,0.15) 0%,
+        transparent 60%
+    );
+    mix-blend-mode: screen;
+}
+
+.vinyl-center {
+    width: 40px;
+    height: 40px;
+    background: #f7d23e;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+#fav-song-title {
+    margin-top: 1rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+#fav-song-album {
+    opacity: 0.8;
+}

@@ -1,0 +1,92 @@
+/* ------------------------------
+   GLOBAL BASE STYLES
+------------------------------ */
+
+body {
+    background-color: black;
+    color: #ffffff;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    font-size: 12pt;
+    margin: 0;
+}
+
+/* Shared layout wrapper */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1.25rem 1rem; /* reduced from 2rem */
+}
+
+/* ------------------------------
+   HEADER
+------------------------------ */
+
+header.container {
+    padding-top: 1rem;
+    padding-bottom: 0.5rem; /* tighter spacing */
+}
+
+header h1 {
+    text-transform: uppercase;
+    margin: 0 0 0.5rem 0; /* reduce gap above nav */
+}
+
+/* ------------------------------
+   NAVIGATION
+------------------------------ */
+
+nav {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0.5rem 0; /* reduced from 1rem */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+nav li {
+    background-color: black;
+    border-radius: 5px;
+    padding: 0.75rem 1.25rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: gold;
+}
+
+/* ------------------------------
+   MAIN CONTENT
+------------------------------ */
+
+main.container {
+    padding-top: 0.5rem; /* reduced gap under nav */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* reduced from 2rem */
+}
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+
+footer.container {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
