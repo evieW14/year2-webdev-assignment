@@ -19,7 +19,15 @@ window.onload = () => {
     ];
     
     renderGallery(galleryImages, "gallery");
-}
+
+    const favouriteSong = { 
+        title: "Ya-Ya",
+        album: "Cowboy Carter",
+        image: "images/Beyoncé_-_Cowboy_Carter.png", 
+        alt: "Beyonce Cowboy Carter"
+    }; 
+    
+    setFavouriteSong(favouriteSong);}
 
 function renderGallery(images, elementId) {
     let output = ""; 
@@ -37,4 +45,9 @@ function renderGallery(images, elementId) {
     document.getElementById(elementId).innerHTML = output;
 }
 
-  
+function setFavouriteSong(song) {
+    document.getElementById("fav-song-title").textContent = song.title;
+    document.getElementById("fav-song-album").textContent = song.album;
+    document.getElementById("fav-song-image").src = song.image;
+    document.getElementById("fav-song-image").alt = song.alt;
+}
