@@ -31,6 +31,11 @@ window.addEventListener("load", () => {
 });
 
 function renderGallery(images, elementId) {
+    const galleryElement = document.getElementById(elementId);
+    if (!galleryElement) {
+        console.error(`Element with ID "${elementId}" not found.`);
+        return;
+    }
     let output = ""; 
 
     for (const image of images) { 
@@ -46,6 +51,14 @@ function renderGallery(images, elementId) {
 
 
 function setFavouriteSong(song) {
+    const titleElement = document.getElementById("fav-song-title");
+    const albumElement = document.getElementById("fav-song-album");
+    const imageElement = document.getElementById("fav-song-image");
+
+    if (!titleElement || !albumElement || !imageElement) {
+        console.error("One or more elements for the favorite song section are missing.");
+        return;
+    }
     document.getElementById("fav-song-title").textContent = song.title;
     document.getElementById("fav-song-album").textContent = song.album;
     document.getElementById("fav-song-image").src = song.image;
