@@ -1,58 +1,78 @@
+/* ------------------------------
+   MAIN GRID CONTAINER
+------------------------------ */
 main.container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: auto;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 100px;
-  justify-items: center;
   margin: 0 auto;
-  row-gap: 20px;
+  padding: 1rem;
+  width: 100%;
 }
 
-@media (max-width: 900px) {
-  main.container {
-    grid-template-columns: repeat(2, 1fr);
-    row-gap: 30px;
-  }
-}
-
-@media (max-width: 600px) {
-  main.container {
-    grid-template-columns: 1fr;
-    row-gap: 30px;
-  }
-}
-
+/* ------------------------------
+   ERA CARDS
+------------------------------ */
 .era-card {
-    background-color: #212121;
-    width: 100%;
-    max-width: 350px;
-    margin: 50px auto;
-    padding: 15px;
-    display: block;
-    box-shadow: 5px 5px 10px 20px #9e9e9e;
+  background-color: #212121;
+  width: 100%;
+  max-width: 350px;
+  padding: 1rem;
+  box-shadow: 5px 5px 10px 20px #9e9e9e;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
 }
 
+.era-card:hover {
+  transform: translateY(-5px);
+}
+
+/* ------------------------------
+   CARD CONTENT
+------------------------------ */
 .era-card h4 {
-    margin-top: 0;
-    text-align: center;
+  margin-top: 0;
+  text-align: center;
+  font-size: 1.25rem;
 }
 
 .era-card ul {
-    list-style: none;
-    padding-left: 0;
-    text-align: left;
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  text-align: left;
 }
 
 .era-card li {
-    display: flex;
-    align-items: baseline;
-    margin-bottom: 6px;
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
 }
 
 .era-card li::before {
-    content: "★";
-    color: gold;
-    width: 20px;
-    margin-right: 8px;
-    flex-shrink: 0;
+  content: "★";
+  color: gold;
+  width: 20px;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+/* ------------------------------
+   OPTIONAL SMALL SCREEN TWEAKS
+------------------------------ */
+@media (max-width: 400px) {
+  .era-card {
+    padding: 0.75rem;
+  }
+
+  .era-card h4 {
+    font-size: 1.1rem;
+  }
+
+  .era-card li {
+    font-size: 0.95rem;
+  }
 }

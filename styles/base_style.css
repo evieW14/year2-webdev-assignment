@@ -14,7 +14,7 @@ h1, h2, h3, h4 {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 75%;
     margin: 0 auto;
     padding: 1.25rem 1rem;
 }
@@ -32,7 +32,7 @@ header.container {
 header h1 {
     text-transform: uppercase;
     margin: 0 0 0.5rem 0;
-    font-size: 36pt;
+    font-size: clamp(2rem, 5vw, 4rem);
 }
 
 /* ------------------------------
@@ -76,13 +76,26 @@ nav a:hover {
     color: gold;
 }
 
+@media (max-width: 600px) {
+    nav a {
+        font-size: 1rem;
+    }
+
+    nav li {
+        padding: 0.5rem 0.75rem;
+    }
+}
+
+
 /* ------------------------------
    MAIN CONTENT
 ------------------------------ */
 
 main.container {
-    padding-top: 0.5rem;
-    gap: 1rem;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.25rem 1rem;
 }
 
 /* ------------------------------
