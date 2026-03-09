@@ -1,0 +1,40 @@
+main.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.era-card {
+    background-color: #212121;
+    color: #ffffff;
+    width: 500px;
+    margin: 50px auto;
+    padding: 15px;
+    display: block;
+    -webkit-box-shadow: 5px 5px 15px 25px #9e9e9e;
+    box-shadow: 5px 5px 15px 25px #9e9e9e;
+}
+
+.era-card h4 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.era-card ul {
+  list-style: none;
+  padding-left: 0;
+  text-align: left;
+}
+
+.era-card li {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+
+.era-card li::before {
+  content: "★";
+  color: gold;
+  width: 20px;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
