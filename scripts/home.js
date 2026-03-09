@@ -23,7 +23,7 @@ window.addEventListener("load", () => {
     const favouriteSong = { 
         title: "Ya-Ya",
         album: "Cowboy Carter",
-        image: "images/Beyoncé_-_Cowboy_Carter.png", 
+        image: "images/Cowboy_Carter.png",
         alt: "Beyonce Cowboy Carter"
     }; 
     
