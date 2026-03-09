@@ -6,7 +6,6 @@ body {
     background-color: black;
     color: #ffffff;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 12pt;
     margin: 0;
 }
 
@@ -15,7 +14,7 @@ h1, h2, h3, h4 {
 }
 
 .container {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 1.25rem 1rem;
 }
@@ -33,6 +32,7 @@ header.container {
 header h1 {
     text-transform: uppercase;
     margin: 0 0 0.5rem 0;
+    font-size: 36pt;
 }
 
 /* ------------------------------
@@ -44,6 +44,8 @@ nav {
     max-width: 900px;
     margin: 0 auto;
     padding: 0.5rem 0;
+    font-weight: bold;
+    font-family: Impact, Haettenschweiler, sans-serif;
 }
 
 nav ul {
@@ -66,7 +68,7 @@ nav li {
 nav a {
     color: white;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 20pt;
 }
 
 nav a:hover {
@@ -80,8 +82,6 @@ nav a:hover {
 
 main.container {
     padding-top: 0.5rem;
-    display: flex;
-    flex-direction: column;
     gap: 1rem;
 }
 
@@ -92,4 +92,5 @@ main.container {
 footer.container {
     padding-top: 1rem;
     padding-bottom: 1rem;
+    text-align: center;
 }
