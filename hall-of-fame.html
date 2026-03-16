@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Evie's Music Room</title>
+        <!-- Base styles -->
+        <link rel="stylesheet" href="styles/base_style.css">
+
+        <!-- Hall of Fame page specific styles -->
+        <link rel="stylesheet" href="styles/hall_of_fame.css">
+
+        <script src="scripts/general.js" defer></script>
+        <script src="scripts/hall_of_fame.js" defer></script>
+    </head>
+
+    <body>
+        <header class="container">
+            <h1>Beyonce</h1>
+            <nav id="nav"></nav>
+        </header>
+
+        <main class="container">
+            <form class="hof-form" action="#" onsubmit="return validateHofForm()">
+                <h2> Hall Of Fame</h2>
+                <label for="year">Enter a Year</label>
+                <input type="text" id="year" placeholder="2021" required size="36">
+                <span id="yearError" class="error"></span>
+                <br />
+                <input type="submit" value="Go!">
+            </form>
+        </main>
+
+        <footer class="container">
+            <div id="copywrite">
+                <p>&copy; 2025 My Assignment Website</p>
+            </div>
+        </footer>
+    </body>
+</html>
