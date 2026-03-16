@@ -1,3 +1,68 @@
-.mailing-form {
+main.container {
+    padding-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.mailing-form {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #616161;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+}
+
+.mailing-form h2 {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    text-align: center;
+    color: gold;
+}
+
+.mailing-form label {
+    display: block;
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+.mailing-form input[type="text"] {
+    width: 90%;
+    padding: 0.7rem 0.9rem;
+    border: 2px solid black;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    margin-bottom: 1.2rem;
+}
+
+.mailing-form input[type="text"]:focus {
+    border-color: #F0B400;
+    box-shadow: 0 0 0 3px rgba(74,125,252,0.2);
+    outline: none;
+}
+
+.error {
+    display: block;
+    margin-top: 0.3rem;
+    color: #d9534f;
+    font-size: 0.85rem;
+}
+
+.mailing-form input[type="submit"] {
+    width: 100%;
+    padding: 0.8rem;
+    background: gold;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.mailing-form input[type="submit"]:hover {
+    background: #F0B400;
 }

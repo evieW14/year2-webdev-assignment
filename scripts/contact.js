@@ -27,6 +27,7 @@ async function validateForm() {
         console.log("Success:", data);
         alert("You have been added to the mailing list!");
 
+        document.querySelector(".mailing-form").reset();
     } catch (error) {
         console.error("Error:", error);
         alert("There was a problem adding you to the mailing list.");
@@ -55,23 +56,8 @@ function validateEmail() {
     return true;
 }
 
-
-function validateEmail() {
-    const emailInput = document.getElementById("email");
+document.getElementById("email").addEventListener("input", () => {
     const emailError = document.getElementById("emailError");
-    const email = emailInput.value.trim();
-
-    // Reset error message
     emailError.textContent = "";
     emailError.style.display = "none";
-
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-    if (!emailRegex.test(email)) {
-        emailError.textContent = "Invalid email address.";
-        emailError.style.display = "block";
-        return false;
-    }
-
-    return true;
-}
+});
