@@ -39,6 +39,5 @@ function renderNavBar(pages, elementId) {
             ${output}
         </ul>
     `
-
     document.getElementById(elementId).innerHTML = navBar;
 }
