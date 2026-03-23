@@ -17,6 +17,7 @@ main.container {
     display: flex;
     justify-content: center;
     text-align: left;
+    margin: 0.8rem;
 }
 
 .home-section::before {
@@ -78,59 +79,48 @@ main.container {
     border: 3px solid white;
 }
 
-.vinyl {
+/* Turntable background */
+.turntable {
     width: 180px;
     height: 180px;
+    border-radius: 16px;
+    background: #222;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Vinyl record */
+.vinyl {
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    background: radial-gradient(circle, #333 40%, #111 70%);
+    background:
+        radial-gradient(circle at center, #222 0 20px, transparent 21px),
+        repeating-radial-gradient(circle at center, #000 0 2px, #111 3px 5px);
     position: relative;
-    animation: spin 6s linear infinite;
-    border: 2px solid #f7d23e;
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+    animation: spin 3s linear infinite;
 }
 
-.vinyl::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    background: repeating-radial-gradient(
-        circle,
-        rgba(255,255,255,0.08) 0px,
-        rgba(255,255,255,0.08) 1px,
-        transparent 2px,
-        transparent 4px
-    );
-    mix-blend-mode: overlay;
-}
-
-.vinyl::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    background: linear-gradient(
-        120deg,
-        rgba(255,255,255,0.15) 0%,
-        transparent 60%
-    );
-    mix-blend-mode: screen;
-}
-
-.vinyl-center {
-    width: 40px;
-    height: 40px;
-    background: #f7d23e;
-    border-radius: 50%;
+/* Center label */
+.label {
     position: absolute;
     top: 50%;
     left: 50%;
+    width: 50px;
+    height: 50px;
     transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #d4b44c 0 30%, #8a6f1f 55%, #4f3e12 100%);
+    box-shadow: 0 0 0 4px #111;
 }
 
+/* Spin animation */
 @keyframes spin {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 #fav-song-title {
