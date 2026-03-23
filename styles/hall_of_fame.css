@@ -24,6 +24,13 @@
     outline: none;
 }
 
+.error {
+    display: block;
+    margin-top: 0.3rem;
+    color: #d9534f;
+    font-size: 1rem;
+}
+
 .hof-form input[type="submit"] {
     width: 10%;
     padding: 0.8rem;

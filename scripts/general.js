@@ -1,33 +1,33 @@
-window.onload = () => {
-    const pages = [
-        {   
-            href:"home.html",
-            title:"Home"
-        },
-        {   
-            href:"about.html",
-            title:"About"
-        },
-        {   
-            href:"discography.html",
-            title:"Discography"
-        },
-        {   
-            href:"gallery.html",
-            title:"Gallery"
-        },
-        {   
-            href:"contact.html",
-            title:"Contact"
-        },
-        {
-            href:"hall-of-fame.html",
-            title: "Hall Of Fame"
-        }
-    ]
+const pages = [
+    {
+        href:"home.html",
+        title:"Home"
+    },
+    {
+        href:"about.html",
+        title:"About"
+    },
+    {
+        href:"discography.html",
+        title:"Discography"
+    },
+    {
+        href:"gallery.html",
+        title:"Gallery"
+    },
+    {
+        href:"contact.html",
+        title:"Contact"
+    },
+    {
+        href:"hall-of-fame.html",
+        title: "Hall Of Fame"
+    }
+]
 
+window.addEventListener("DOMContentLoaded", () => {
     renderNavBar(pages, "nav");
-}
+});
 
 function renderNavBar(pages, elementId) {
     let output = ""

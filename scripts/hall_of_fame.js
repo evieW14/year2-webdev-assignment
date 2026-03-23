@@ -1,6 +1,7 @@
 // --- VALIDATE FORM ---
 
 async function validateHofForm() {
+    event.preventDefault();  // stops page reload completely
     document.getElementById("hofResults").innerHTML = "";
     document.getElementById("hofHeader").innerHTML = "";
 
@@ -17,6 +18,11 @@ async function validateHofForm() {
         if (!response.ok) throw new Error("Network response was not ok");
 
         const data = await response.json();
+        if (!validateData(data)) {
+            document.getElementById("hofHeader").innerHTML =
+                `<h2>No Hall of Fame data found for year: ${year}</h2>`;
+            return;
+        }
         console.log("Success:", data);
         renderHofResults(data);
 
@@ -26,6 +32,25 @@ async function validateHofForm() {
     }
 
     return false;
+}
+
+// --- YEAR VALIDATION ---
+function validateYear() {
+    const yearInput = document.getElementById("year");
+    const yearError = document.getElementById("yearError");
+    const year = yearInput.value.trim();
+
+    yearError.textContent = "";
+    yearError.style.display = "none";
+
+    const yearRegex = /^\d{4}$/;
+
+    if (!yearRegex.test(year)) {
+        yearError.textContent = "Invalid Year - Please Try Again";
+        yearError.style.display = "block";
+        return false;
+    }
+    return true;
 }
 
 function fixEncoding(str) {
@@ -42,25 +67,9 @@ function validateInductedBy(str) {
     }
 }
 
-// --- YEAR VALIDATION ---
-function validateYear() {
-    const yearInput = document.getElementById("year");
-    const yearError = document.getElementById("yearError");
-    const year = yearInput.value.trim();
-
-    yearError.textContent = "";
-    yearError.style.display = "none";
-
-    const yearRegex = /^\d{4}$/;
-
-    if (!yearRegex.test(year)) {
-        yearError.textContent = "Invalid year.";
-        yearError.style.display = "block";
-        return false;
-    }
-    return true;
+function validateData(data) {
+    return data && Array.isArray(data.data) && data.data.length > 0;
 }
-
 
 // --- RENDER RESULTS ---
 function renderHofResults(data) {
@@ -111,4 +120,28 @@ function renderHofResults(data) {
 
         container.appendChild(card);
     });
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+    loadInitialYear();
+});
+
+async function loadInitialYear() {
+    const defaultYear = 2021;
+    document.getElementById("year").value = defaultYear;
+
+    try {
+        const response = await fetch(
+            `https://mudfoot.doc.stu.mmu.ac.uk/ash/api/halloffame?year=${defaultYear}`
+        );
+
+        if (!response.ok) throw new Error("Network response was not ok");
+
+        const data = await response.json();
+        renderHofResults(data);
+
+    } catch (error) {
+        console.error("Error:", error);
+        alert("There was a problem fetching initial Hall of Fame data.");
+    }
 }
