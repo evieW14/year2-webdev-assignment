@@ -1,5 +1,4 @@
 // --- VALIDATE FORM ---
-
 async function validateHofForm() {
     event.preventDefault();  // stops page reload completely
     document.getElementById("hofResults").innerHTML = "";
@@ -53,12 +52,14 @@ function validateYear() {
     return true;
 }
 
+// --- FIX NAMES ---
 function fixEncoding(str) {
     return str
         .replace(/â€¯/g, " ")   // replace narrow no-break space with normal space
         .normalize("NFC");      // normalize Unicode
 }
 
+// --- VALIDATE INDUCTED ---
 function validateInductedBy(str) {
     if (str.includes("undefined")) {
         return null;
@@ -67,6 +68,7 @@ function validateInductedBy(str) {
     }
 }
 
+// --- VALIDATE RETURN DATA ---
 function validateData(data) {
     return data && Array.isArray(data.data) && data.data.length > 0;
 }
@@ -126,6 +128,7 @@ window.addEventListener("DOMContentLoaded", () => {
     loadInitialYear();
 });
 
+// --- LOAD 2021 ---
 async function loadInitialYear() {
     const defaultYear = 2021;
     document.getElementById("year").value = defaultYear;
