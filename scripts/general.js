@@ -12,10 +12,6 @@ const pages = [
         title:"Discography"
     },
     {
-        href:"gallery.html",
-        title:"Gallery"
-    },
-    {
         href:"contact.html",
         title:"Contact"
     },
