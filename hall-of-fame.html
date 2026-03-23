@@ -20,13 +20,14 @@
 
         <main class="container">
             <form class="hof-form" action="#" onsubmit="return validateHofForm()">
-                <h2> Hall Of Fame</h2>
                 <label for="year">Enter a Year</label>
-                <input type="text" id="year" placeholder="2021" required size="36">
+                <input type="text" id="year" size="4">
                 <span id="yearError" class="error"></span>
-                <br />
                 <input type="submit" value="Go!">
             </form>
+
+            <div id="hofHeader"></div>
+            <div id="hofResults"></div>
         </main>
 
         <footer class="container">

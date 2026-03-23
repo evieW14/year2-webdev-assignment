@@ -19,6 +19,10 @@ window.onload = () => {
         {   
             href:"contact.html",
             title:"Contact"
+        },
+        {
+            href:"hall-of-fame.html",
+            title: "Hall Of Fame"
         }
     ]
 
