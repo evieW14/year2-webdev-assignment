@@ -18,6 +18,7 @@ main.container {
     justify-content: center;
     text-align: left;
     margin: 0.8rem;
+    font-weight: bold;
 }
 
 .home-section::before {
