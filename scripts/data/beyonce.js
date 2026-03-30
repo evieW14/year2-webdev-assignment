@@ -1,4 +1,4 @@
-export const beyonceAlbumList = [
+const beyonceAlbumList = [
         {
             title: "Dangerously in Love",
             released: "2003",
@@ -186,3 +186,40 @@ export const beyonceAlbumList = [
             ]
         },
     ]
+
+const beyonceSingleList = [
+  { title: "Crazy in Love (feat. Jay-Z)", released: "2003" },
+  { title: "Baby Boy (feat. Sean Paul)", released: "2003" },
+  { title: "Me, Myself and I", released: "2003" },
+  { title: "Naughty Girl", released: "2004" },
+  { title: "Work It Out", released: "2002" },
+  { title: "Check on It (feat. Slim Thug)", released: "2005" },
+  { title: "Deja Vu (feat. Jay-Z)", released: "2006" },
+  { title: "Ring the Alarm", released: "2006" },
+  { title: "Irreplaceable", released: "2006" },
+  { title: "Beautiful Liar (with Shakira)", released: "2007" },
+  { title: "If I Were a Boy", released: "2008" },
+  { title: "Single Ladies (Put a Ring on It)", released: "2008" },
+  { title: "Halo", released: "2009" },
+  { title: "Diva", released: "2009" },
+  { title: "Ego", released: "2009" },
+  { title: "Sweet Dreams", released: "2009" },
+  { title: "Broken-Hearted Girl", released: "2009" },
+  { title: "Run the World (Girls)", released: "2011" },
+  { title: "Best Thing I Never Had", released: "2011" },
+  { title: "Love on Top", released: "2011" },
+  { title: "Countdown", released: "2011" },
+  { title: "Drunk in Love (feat. Jay-Z)", released: "2013" },
+  { title: "XO", released: "2013" },
+  { title: "Partition", released: "2014" },
+  { title: "Pretty Hurts", released: "2014" },
+  { title: "Formation", released: "2016" },
+  { title: "Sorry", released: "2016" },
+  { title: "Hold Up", released: "2016" },
+  { title: "All Night", released: "2016" },
+  { title: "Spirit", released: "2019" },
+  { title: "Break My Soul", released: "2022" },
+  { title: "Cuff It", released: "2022" },
+  { title: "Texas Hold 'Em", released: "2024" },
+  { title: "16 Carriages", released: "2024" }
+];
