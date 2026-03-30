@@ -3,15 +3,16 @@
     <head>
         <title>Evie's Music Room</title>
         <meta charset="UTF-8">
+
         <!-- Base styles -->
         <link rel="stylesheet" href="styles/base_style.css">
 
         <!-- Home page specific styles -->
         <link rel="stylesheet" href="styles/discography.css">
 
+        <!-- General and specific Discography scripts -->
         <script src="scripts/general.js" defer></script>
-        <script src="scripts/discography.js" defer></script>
-
+        <script type="module" src="scripts/discography.js" defer></script>
     </head>
 
     <body>
@@ -21,12 +22,36 @@
         </header>
 
         <main class="container">
-            <!-- Albums (Cover + Title + Year) -->
-                <!-- Track List (showable)-->
-            <div id="albums" class="albums"></div>
-            <!-- Top Charting Tracks-->
-            <!-- Singles -->
-            <!-- Tours -->
+            <!-- Artist and Category selection -->
+            <div class="selectionArea">
+                <div class="tab">
+                    <button id="defaultOpen" class="tabLinks" onClick="openArtist(event, 'DC')">Destiny's Child</button>
+                    <button class="tabLinks" onClick="openArtist(event, 'Beyonce')">Beyonce</button>
+                </div>
+
+                <div class="subnav">
+                    <select id="subSelect" onchange="openCategory(this.value)"> <q12y7uu></q12y7uu>
+                        <option value="albums">Albums</option>
+                        <option value="singles">Singles</option>
+                        <option value="tours">Tours</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Tab Content -->
+            <div id="DC" class="tabContent">
+                <div id="DC-albums" class="subContent albums">DC-albums</div>
+                <div id="DC-singles" class="subContent singles">DC-singles</div>
+                <div id="DC-tours" class="subContent tours">DC-tours</div>
+            </div>
+
+
+            <div id="Beyonce" class="tabContent">
+                <div id="Beyonce-albums" class="subContent albums">Beyonce-albums</div>
+                <div id="Beyonce-singles" class="subContent singles">Beyonce-singles</div>
+                <div id="Beyonce-tours" class="subContent tours">Beyonce-tours</div>
+            </div>
+
         </main>
 
         <footer class="container">
@@ -36,4 +61,3 @@
         </footer>
     </body>
 </html>
-
