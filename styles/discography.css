@@ -1,53 +1,104 @@
 /* ------------------------------
-   MAIN GRID CONTAINER
+   MAIN CONTAINER
 ------------------------------ */
 main.container {
     padding-top: 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
+/* ------------------------------
+   SELECTION AREA (tabs + dropdown)
+------------------------------ */
 .selectionArea {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 500px;
 }
 
+/* ------------------------------
+   TABS
+------------------------------ */
 .tab {
-    border-bottom: 1px solid #ccc; /* light divider line */
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%
+    border-bottom: 1px solid #ccc;
     background: none;
 }
 
-/* Base button style */
 .tab button {
     background: none;
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 14px 20px;
-    font-size: 1.5rem;
+    padding: 12px 18px;
+    font-size: 1.4rem;
     font-weight: 800;
     color: white;
-    border-bottom: 3px solid transparent; /* invisible underline */
+    border-bottom: 3px solid transparent;
     transition: 0.3s;
 }
 
-/* Hover effect */
 .tab button:hover {
-    border-bottom: 3px solid gold;
+    border-bottom: 3px solid white;
 }
 
-/* Active tab underline */
 .tab button.active {
-    border-bottom: 3px solid gold; /* your chosen highlight color */
+    border-bottom: 3px solid gold;
     font-weight: bold;
 }
 
-/* Tab content */
 .tabContent {
     display: none;
-    padding: 20px 0;
 }
 
+.tabContent.active {
+    display: block;
+}
+
+/* ------------------------------
+   DROPDOWN SUBNAV
+------------------------------ */
+.subnav {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin: 1rem;
+}
+
+.subnav select {
+    font-size: 1.1rem !important;
+    padding: 0.5rem 0.8rem;
+    height: auto;
+    line-height: 1.2;
+    width: auto;
+    max-width: 200px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.subContent {
+    display: none;
+}
+
+.subContent.active {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+/* ------------------------------
+   ALBUMS
+------------------------------ */
 .albums {
     display: flex;
     flex-direction: column;
@@ -92,6 +143,9 @@ main.container {
     transform: translateY(-2px);
 }
 
+/* ------------------------------
+   TRACK LIST MODALS
+------------------------------ */
 .modal {
     display: none;
     position: fixed;
