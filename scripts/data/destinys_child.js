@@ -1,4 +1,4 @@
-export const dcAlbumList = [
+const dcAlbumList = [
         {
             title: "Destiny's Child",
             released: "1998",
@@ -105,3 +105,23 @@ export const dcAlbumList = [
             ]
         }
     ];
+
+const dcSingleList = [
+  { title: "No, No, No Part 2 (feat. Wyclef Jean)", released: "1998" },
+  { title: "With Me Part 1 (feat. Jermaine Dupri)", released: "1998" },
+  { title: "Bills, Bills, Bills", released: "1999" },
+  { title: "Bug a Boo", released: "1999" },
+  { title: "Say My Name", released: "1999" },
+  { title: "Jumpin', Jumpin'", released: "2000" },
+  { title: "Independent Women Part I", released: "2000" },
+  { title: "Survivor", released: "2001" },
+  { title: "Bootylicious", released: "2001" },
+  { title: "Emotion", released: "2001" },
+  { title: "Nasty Girl", released: "2002" },
+  { title: "8 Days of Christmas", released: "2001" },
+  { title: "Lose My Breath", released: "2004" },
+  { title: "Soldier (feat. T.I. & Lil Wayne)", released: "2004" },
+  { title: "Girl", released: "2005" },
+  { title: "Cater 2 U", released: "2005" },
+  { title: "Stand Up for Love", released: "2005" }
+];

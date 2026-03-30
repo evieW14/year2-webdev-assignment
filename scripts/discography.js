@@ -1,91 +1,83 @@
-import { beyonceAlbumList } from "./data/beyonce.js";
-import { dcAlbumList } from "./data/destinys_child.js";
 
-window.addEventListener("load", () => {
-    renderAlbumContent(dcAlbumList, "DC-albums");
-    renderAlbumContent(beyonceAlbumList, "Beyonce-albums");
-});
+const data = {
+    "destinys-child": {
+        albums: dcAlbumList,
+        singles: dcSingleList,
+    },
+    beyonce: {
+        albums: beyonceAlbumList,
+        singles: beyonceSingleList,
+    },
+};
 
-// Set currentArtist to be used later
-let currentArtist = null;
+let activeArtist = "beyonce";
+let activeCategory = "albums";
 
-// Artist Tab Switching Handler
-function openArtist(evt, artistName) {
-    currentArtist = artistName;
+function renderDiscography() {
+    const content = document.getElementById("content");
+    const items = data[activeArtist][activeCategory];
 
-    // Remove active class to hide other tabs
-    document.querySelectorAll(".tabLinks").forEach(btn => {
-        btn.classList.remove("active");
-    });
+    const categoryLabels = { albums: "Albums", singles: "Singles", tours: "Tours" };
+    let htmlOutput = `<p class="category-label">${categoryLabels[activeCategory]}</p>`;
 
-    // Show selected artist
-    document.querySelectorAll(".tabContent").forEach(sec => sec.classList.remove("active"));
-    document.getElementById(artistName).classList.add("active");
-    evt.currentTarget.classList.add("active");
+    if (activeCategory === "albums") {
+        htmlOutput += `<div class="albums">`;
 
-    // Show correct sub-section
-    const dropdown = document.getElementById("subSelect");
-    openCategory(dropdown.value);
-}
-
-// Category Switching Handler
-function openCategory(category) {
-    if (!currentArtist) return;
-
-    // Hide other sub contents
-    const contents = document.getElementsByClassName("subContent");
-    for (let i = 0; i < contents.length; i++) {
-        contents[i].classList.remove("active");
-    }
-
-    // Create artist + category id
-    const id = `${currentArtist}-${category}`;
-    const section = document.getElementById(id);
-
-    // Display section
-    if (section) {
-        section.classList.add("active");
-    }
-}
-
-// Handle Album Content
-function renderAlbumContent(albums, elementId) {
-    const albumElement = document.getElementById(elementId);
-    if (!albumElement) return;
-
-    let output = "";
-
-    // Create each album objects
-    albums.forEach((album, index) => {
+        items.forEach((item, index) => {
         const modalId = `modal-${index}`;
         const btnId = `btn-${index}`;
 
-        output += `
-        <div class="album-item">
-            <img class="album-image" src="${album.image}" alt="${album.alt}">
-            <div class="album-details">
-                <h2>${album.title}</h2>
-                <h3>${album.released}</h3>
-                <button id="${btnId}">Show Track List...</button>
+        htmlOutput += `
+            <div class="album-item">
+                <img class="album-image" src="${item.image}" alt="${item.alt}">
+                <div class="album-details">
+                    <h2>${item.title}</h2>
+                    <h3>${item.released}</h3>
+                    <button id="${btnId}">Show Track List...</button>
+                </div>
             </div>
-        </div>
 
-        <!-- Modal -->
-        <div id="${modalId}" class="modal">
-            <div class="modal-content">
-                <span class="close" data-close="${modalId}">&times;</span>
-                <h2>${album.title} - Track List</h2>
-                <ul>
-                    ${album.tracks.map(track => `<li>${track}</li>`).join("")}
-                </ul>
+            <!-- Modal -->
+            <div id="${modalId}" class="modal">
+                <div class="modal-content">
+                    <span class="close" data-close="${modalId}">&times;</span>
+                    <h2>${item.title} - Track List</h2>
+                    <ul>
+                        ${item.tracks.map(track => `<li>${track}</li>`).join("")}
+                    </ul>
+                </div>
             </div>
-        </div>
-        `;
-    });
+            `;
+        });
+        htmlOutput += `</div>`;
+        initAllModals()
 
-    albumElement.innerHTML = output;
+    } else if (activeCategory === "singles") {
+        htmlOutput += `<div clas="singles-grid">`;
+        items.forEach(item => {
+            htmlOutput += `
+                <div class="single-card">
+                    <div class="single-title">${item.title}</div>
+                    <div class="single-released">${item.released}</div>
+                </div>`;
+        });
+        htmlOutput += `</div>`;
 
-    initAllModals();
+    } else if (activeCategory === "tours") {
+        htmlOutput += `<div clas="tours-grid">`;
+        items.forEach(item => {
+            htmlOutput += `
+                <div class="tour-card">
+                    <div class="tour-info">
+                        <div class="tour-title">${item.title}</div>
+                    </div>
+                    <span class="tour-released">${item.released}</div>
+                </div>`;
+        });
+        htmlOutput += `</div>`;
+    }
+
+    content.innerHTML = htmlOutput;
 }
 
 // Handle creating all track modals
@@ -120,12 +112,18 @@ function initAllModals() {
         });
     });
 }
-
-
-// Load the default tab
-document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("defaultOpen").click();
+document.querySelectorAll(".tab-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        activeArtist = btn.dataset.artist
+        renderDiscography();
+    });
 });
 
-window.openArtist = openArtist;
-window.openCategory = openCategory;
+document.getElementById("category-select").addEventListener("change", e => {
+    activeCategory = e.target.value;
+    renderDiscography();
+});
+
+renderDiscography();
