@@ -223,3 +223,13 @@ const beyonceSingleList = [
   { title: "Texas Hold 'Em", released: "2024" },
   { title: "16 Carriages", released: "2024" }
 ];
+
+const beyonceTourList = [
+    { title: "Dangerously in Love Tour", year: "2003"},
+    { title: "The Beyoncé Experience", year: "2007"},
+    { title: "I am... Tour", year: "2009"},
+    { title: "The Mrs. Carter Show World Tour", year: "2013"},
+    { title: "The Formation World Tour", year: "2016"},
+    { title: "Renaissance World Tour", year: "2023"},
+    { title: "Cowboy Carter Tour", year: "2025"}
+];
