@@ -21,12 +21,26 @@
         </header>
 
         <main class="container">
-            <!-- Albums (Cover + Title + Year) -->
-                <!-- Track List (showable)-->
-            <div id="albums" class="albums"></div>
-            <!-- Top Charting Tracks-->
-            <!-- Singles -->
-            <!-- Tours -->
+            <div class="selectionArea">
+                <div class="tab">
+                    <button id="defaultOpen" class="tabLinks" onClick="openArtist(event, 'DC')" >Destiny's Child</button>
+                    <button class="tabLinks" onClick="openArtist(event, 'Beyonce')" >Beyonce</button>
+                </div>
+            </div>
+
+            <!-- Tab Content -->
+            <div id="DC" class="tabContent">
+                <h3>Destiny's Child</h3>
+                <p> This will be the Destiny's Child content</p>
+
+            </div>
+
+            <div id="Beyonce" class="tabContent">
+                <h3>Beyonce</h3>
+                <p> This will be the beyonce content</p>
+            </div>
+
+<!--            <div id="albums" class="albums"></div>-->
         </main>
 
         <footer class="container">
@@ -36,4 +50,3 @@
         </footer>
     </body>
 </html>
-

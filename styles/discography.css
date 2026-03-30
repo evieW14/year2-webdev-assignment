@@ -1,3 +1,53 @@
+/* ------------------------------
+   MAIN GRID CONTAINER
+------------------------------ */
+main.container {
+    padding-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.selectionArea {
+    display: flex;
+}
+
+.tab {
+    border-bottom: 1px solid #ccc; /* light divider line */
+    background: none;
+}
+
+/* Base button style */
+.tab button {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 20px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: white;
+    border-bottom: 3px solid transparent; /* invisible underline */
+    transition: 0.3s;
+}
+
+/* Hover effect */
+.tab button:hover {
+    border-bottom: 3px solid gold;
+}
+
+/* Active tab underline */
+.tab button.active {
+    border-bottom: 3px solid gold; /* your chosen highlight color */
+    font-weight: bold;
+}
+
+/* Tab content */
+.tabContent {
+    display: none;
+    padding: 20px 0;
+}
+
 .albums {
     display: flex;
     flex-direction: column;
