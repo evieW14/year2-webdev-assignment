@@ -11,7 +11,7 @@ const data = {
     },
 };
 
-let activeArtist = "beyonce";
+let activeArtist = "destinys-child";
 let activeCategory = "albums";
 
 function renderDiscography() {
@@ -34,17 +34,7 @@ function renderDiscography() {
                     <div class="album-details">
                         <h2>${item.title}</h2>
                         <h3>${item.released}</h3>
-                        <button id="${btnId}">Show Track List...</button>
-                    </div>
-                </div>
-
-                <div id="${modalId}" class="modal">
-                    <div class="modal-content">
-                        <span class="close" data-close="${modalId}">&times;</span>
-                        <h2>${item.title} - Track List</h2>
-                        <ul>
-                            ${item.tracks.map(track => `<li>${track}</li>`).join("")}
-                        </ul>
+                        <button class="btn-tracks" data-album-index="${index}">Show Track List...</button>
                     </div>
                 </div>
                 `;
@@ -77,41 +67,54 @@ function renderDiscography() {
     }
 
     content.innerHTML = htmlOutput;
-    initAllModals();
 }
 
-// Handle creating all track modals
-function initAllModals() {
-    const buttons = document.querySelectorAll("button[id^='btn-']");
-    const modals = document.querySelectorAll(".modal");
 
-    buttons.forEach((btn) => {
-        const index = btn.id.split("-")[1];
-        const modal = document.getElementById(`modal-${index}`);
+// Modal Logic
+const modalOverlay = document.getElementById("modal-overlay");
+const modalTitle = document.getElementById("modal-title");
+const modalTracks = document.getElementById("modal-tracks");
 
-        btn.addEventListener("click", () => {
-            modal.style.display = "block";
-        });
-    });
+// Handle opening a modal and showing tracks/numbers
+function openModal(albumIndex) {
+    const album = data[activeArtist].albums[albumIndex];
 
-    // Close buttons
-    const closeButtons = document.querySelectorAll(".close");
-    closeButtons.forEach(closeBtn => {
-        closeBtn.addEventListener("click", () => {
-            const modalId = closeBtn.dataset.close;
-            document.getElementById(modalId).style.display = "none";
-        });
-    });
+    modalTitle.textContent = album.title;
 
-    // Click outside to close
-    window.addEventListener("click", (event) => {
-        modals.forEach(modal => {
-            if (event.target === modal) {
-                modal.style.display = "none";
-            }
-        });
-    });
+    modalTracks.innerHTML = album.tracks
+        .map((track, i) => `
+            <li>
+                <span class="modal-track-number">${i + 1}</span>
+                <span class="modal-track-name">${track}</span>
+            </li>
+        `)
+        .join("");
+
+    modalOverlay.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
 }
+
+// Handle closing modal logic
+function closeModal() {
+    modalOverlay.classList.add("hidden");
+    document.body.style.overflow = "";
+}
+
+// Click overlay to close modal
+window.addEventListener("click", (event) => {
+    if (event.target === modalOverlay) closeModal();
+});
+
+// Click X button to close modal
+document.querySelector(".modal-close").addEventListener("click", closeModal);
+
+// Open modal when clicking a track button
+document.getElementById("content").addEventListener("click", (event) => {
+    const btn = event.target.closest(".btn-tracks");
+    if (btn) openModal(Number(btn.dataset.albumIndex));
+});
+
+// Changing Artist tab listener
 document.querySelectorAll(".tab-btn").forEach(btn => {
     btn.addEventListener("click", () => {
         document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
@@ -121,6 +124,7 @@ document.querySelectorAll(".tab-btn").forEach(btn => {
     });
 });
 
+// Changing category listener
 document.getElementById("category-select").addEventListener("change", e => {
     activeCategory = e.target.value;
     renderDiscography();
