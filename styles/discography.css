@@ -144,26 +144,97 @@ select:focus {
 /* ------------------------------
    TRACK LIST MODALS
 ------------------------------ */
-.modal {
-    display: none;
+
+.modal-overlay {
+    display: flex;
     position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
+    background: rgba(0,0,0, 0.75);
+    inset: 0;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    z-index: 100;
 }
 
-.modal-content {
-    background-color: #8C8B8B;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 700px;
+.modal-overlay.hidden {
+    display: none;
+}
+.modal {
+    background-color: #161616;
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 1000px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid #1e1e1e;
+    flex-shrink: 0;
+}
+
+.modal-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 4px;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f0f0f0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 4px 8px;
+    flex-shrink: 0;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: #f0f0f0;
+}
+
+.modal-track-list li {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 24px;
+    transition: background 0.15s;
+}
+
+.modal-track-list li:hover {
+    background: #1e1e1e;
+}
+
+.modal-track-number {
+    font-size: 0.75rem;
+    color: #444;
+    font-weight: 600;
+    width: 20px;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.modal-track-name {
+    font-size: 0.9rem;
+    color: #d0d0d0;
 }
 
 .close {

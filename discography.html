@@ -40,6 +40,19 @@
             </div>
 
             <div class="content" id="content"></div>
+
+            <div class="modal-overlay hidden" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+                <div id="${modalId}" class="modal">
+                    <div class="modal-header">
+                        <div class="modal-header-info">
+                            <p class="modal-label">Tracklist</p>
+                            <h2 class="modal-title" id="modal-title"></h2>
+                        </div>
+                        <button class="modal-close" aria-label="Close">&times;</button>
+                    </div>
+                    <ol class="modal-track-list" id="modal-tracks"></ol>
+                </div>
+            </div>
         </main>
 
         <footer class="container">

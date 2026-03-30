@@ -49,16 +49,16 @@ function renderGallery(images, elementId) {
     document.getElementById(elementId).innerHTML = output;
 }
 
-
 function setFavouriteSong(song) {
     const titleElement = document.getElementById("fav-song-title");
     const albumElement = document.getElementById("fav-song-album");
     const imageElement = document.getElementById("fav-song-image");
 
     if (!titleElement || !albumElement || !imageElement) {
-        console.error("One or more elements for the favorite song section are missing.");
+        console.error("One or more elements for the favourite song section are missing.");
         return;
     }
+
     document.getElementById("fav-song-title").textContent = song.title;
     document.getElementById("fav-song-album").textContent = song.album;
     document.getElementById("fav-song-image").src = song.image;
