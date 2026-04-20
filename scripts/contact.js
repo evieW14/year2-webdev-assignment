@@ -1,3 +1,4 @@
+// Handle contact form validation
 async function validateForm() {
     const isEmailValid = validateEmail();
     if (!isEmailValid) {
@@ -8,6 +9,7 @@ async function validateForm() {
     const email = document.getElementById("email").value.trim();
 
     try {
+        // Send POST request to the mailing list server with the user's input
         const response = await fetch("https://mudfoot.doc.stu.mmu.ac.uk/ash/api/mailinglist", {
             method: "POST",
             headers: {
@@ -23,20 +25,24 @@ async function validateForm() {
             throw new Error("Network response was not ok");
         }
 
+        // Handle success response with alert.
         const data = await response.json();
         console.log("Success:", data);
         alert("You have been added to the mailing list!");
 
-        document.querySelector(".mailing-form").reset();
+        document.querySelector(".mailing-form").reset(); //reset form on success
     } catch (error) {
+        // Catch error and alert the user
         console.error("Error:", error);
         alert("There was a problem adding you to the mailing list.");
+        // Form is not reset, so they can amend their inputs and retry.
     }
 
-    return false; // prevent page reload
+    return false;
 }
 
 
+// Handle validating user's email
 function validateEmail() {
     const emailInput = document.getElementById("email");
     const emailError = document.getElementById("emailError");
