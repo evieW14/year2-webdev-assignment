@@ -1,13 +1,37 @@
+/* ------------------------------
+   MAIN SECTION
+------------------------------ */
 main.container {
     padding-top: 1.5rem;
     display: flex;
     flex-direction: column;
 }
 
+/* ------------------------------
+   IMAGE GALLERY
+------------------------------ */
 .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
     margin-top: 1rem;
 }
 
+.gallery-item {
+    flex: 1 1 calc(25% - 12px);
+    max-width: calc(25% - 12px);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* ------------------------------
+   SECTIONS FOR HOME PAGE
+------------------------------ */
 .home-section {
     position: relative;
     padding: 1.25rem 2rem;
@@ -34,24 +58,9 @@ main.container {
     z-index: -1;
 }
 
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
-}
-
-.gallery-item {
-    flex: 1 1 calc(25% - 12px);
-    max-width: calc(25% - 12px);
-}
-
-.gallery-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
+/* ------------------------------
+   AWARDS
+------------------------------ */
 .awards ul {
     list-style: none;
     margin: 0;
@@ -62,6 +71,9 @@ main.container {
     padding: 0.25rem 0;
 }
 
+/* ------------------------------
+   FAVOURITE SONG SECTION
+------------------------------ */
 .favourite-song {
     text-align: center;
     padding: 2rem;
@@ -80,7 +92,19 @@ main.container {
     border: 3px solid white;
 }
 
-/* Turntable background */
+#fav-song-title {
+    margin-top: 1rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+#fav-song-album {
+    opacity: 0.8;
+}
+
+/* ------------------------------
+   TURNTABLE AND VINYL
+------------------------------ */
 .turntable {
     width: 180px;
     height: 180px;
@@ -92,7 +116,6 @@ main.container {
     align-items: center;
 }
 
-/* Vinyl record */
 .vinyl {
     width: 150px;
     height: 150px;
@@ -104,7 +127,6 @@ main.container {
     animation: spin 3s linear infinite;
 }
 
-/* Center label */
 .label {
     position: absolute;
     top: 50%;
@@ -117,19 +139,8 @@ main.container {
     box-shadow: 0 0 0 4px #111;
 }
 
-/* Spin animation */
 @keyframes spin {
     to {
         transform: rotate(360deg);
     }
-}
-
-#fav-song-title {
-    margin-top: 1rem;
-    font-size: 1.4rem;
-    font-weight: bold;
-}
-
-#fav-song-album {
-    opacity: 0.8;
 }

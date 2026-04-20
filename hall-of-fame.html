@@ -9,7 +9,7 @@
         <!-- Hall of Fame page specific styles -->
         <link rel="stylesheet" href="styles/hall_of_fame.css">
 
-        <!-- Javascript files -->
+        <!-- General and HOF Specific Javascript files -->
         <script src="scripts/general.js" defer></script>
         <script src="scripts/hall_of_fame.js" defer></script>
     </head>
@@ -21,19 +21,21 @@
         </header>
 
         <main class="container">
+            <!-- Hall Of Fame Year Form -->
             <form class="hof-form" action="#" onsubmit="return validateHofForm()">
                 <label for="year">Enter a Year</label>
                 <input type="text" id="year" size="4">
-                <span id="yearError" class="error"></span><br />
+                <span id="yearError" class="error"></span>
                 <input type="submit" value="Go!">
             </form>
 
+            <!-- Hall Of Fame Results -->
             <div id="hofHeader"></div>
             <div id="hofResults"></div>
         </main>
 
         <footer class="container">
-            <div id="copywrite">
+            <div id="copyright">
                 <p>&copy; 2025 My Assignment Website</p>
             </div>
         </footer>

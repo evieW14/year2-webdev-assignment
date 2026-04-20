@@ -30,6 +30,7 @@ window.addEventListener("load", () => {
     setFavouriteSong(favouriteSong);
 });
 
+// Handle rendering the gallery images for the home page
 function renderGallery(images, elementId) {
     const galleryElement = document.getElementById(elementId);
     if (!galleryElement) {
@@ -38,6 +39,7 @@ function renderGallery(images, elementId) {
     }
     let output = ""; 
 
+    // Create each image with src and alternative text
     for (const image of images) { 
         output += ` 
         <div class="gallery-item"> 
@@ -49,6 +51,7 @@ function renderGallery(images, elementId) {
     document.getElementById(elementId).innerHTML = output;
 }
 
+// Handle favourite song section
 function setFavouriteSong(song) {
     const titleElement = document.getElementById("fav-song-title");
     const albumElement = document.getElementById("fav-song-album");

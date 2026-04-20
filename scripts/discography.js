@@ -1,3 +1,5 @@
+// Handle populating the data array
+// It is kept in separate files to keep this script clean and easier to change the content.
 const data = {
     "destinys-child": {
         albums: dcAlbumList,
@@ -11,19 +13,25 @@ const data = {
     },
 };
 
+// Load page with selected artist/category
 let activeArtist = "destinys-child";
 let activeCategory = "albums";
 
+
+// Handle rendering the content for the page, based on user's selection
 function renderDiscography() {
     const content = document.getElementById("content");
     const items = data[activeArtist][activeCategory];
 
+    // Set up category labels
     const categoryLabels = { albums: "Albums", singles: "Singles", tours: "Tours" };
     let htmlOutput = `<p class="category-label">${categoryLabels[activeCategory]}</p>`;
 
+    // Handle 'albums' selection
     if (activeCategory === "albums") {
         htmlOutput += `<div class="albums">`;
 
+        // Show each album with their track list modal
         items.forEach((item, index) => {
             const modalId = `modal-${index}`;
             const btnId = `btn-${index}`;
@@ -41,6 +49,7 @@ function renderDiscography() {
         });
         htmlOutput += `</div>`;
 
+    // Handle 'singles' selection with each single for the artist
     } else if (activeCategory === "singles") {
         htmlOutput += `<div class="singles-grid">`;
         items.forEach(item => {
@@ -52,6 +61,7 @@ function renderDiscography() {
         });
         htmlOutput += `</div>`;
 
+    // Handle 'tours' selection with each tour for the artist
     } else if (activeCategory === "tours") {
         htmlOutput += `<div class="tours-list">`;
         items.forEach(item => {
@@ -70,7 +80,7 @@ function renderDiscography() {
 }
 
 
-// Modal Logic
+// Modal Elements
 const modalOverlay = document.getElementById("modal-overlay");
 const modalTitle = document.getElementById("modal-title");
 const modalTracks = document.getElementById("modal-tracks");
@@ -94,27 +104,27 @@ function openModal(albumIndex) {
     document.body.style.overflow = "hidden";
 }
 
-// Handle closing modal logic
+// Handle closing the track list modal
 function closeModal() {
     modalOverlay.classList.add("hidden");
     document.body.style.overflow = "";
 }
 
-// Click overlay to close modal
+// Click overlay to close the modal
 window.addEventListener("click", (event) => {
     if (event.target === modalOverlay) closeModal();
 });
 
-// Click X button to close modal
+// Click X button to close the modal
 document.querySelector(".modal-close").addEventListener("click", closeModal);
 
-// Open modal when clicking a track button
+// Open modal when clicking the track list button
 document.getElementById("content").addEventListener("click", (event) => {
     const btn = event.target.closest(".btn-tracks");
     if (btn) openModal(Number(btn.dataset.albumIndex));
 });
 
-// Changing Artist tab listener
+// Listener for the user changing artist selection
 document.querySelectorAll(".tab-btn").forEach(btn => {
     btn.addEventListener("click", () => {
         document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
@@ -124,7 +134,7 @@ document.querySelectorAll(".tab-btn").forEach(btn => {
     });
 });
 
-// Changing category listener
+// Listener for the user changing category selection
 document.getElementById("category-select").addEventListener("change", e => {
     activeCategory = e.target.value;
     renderDiscography();
