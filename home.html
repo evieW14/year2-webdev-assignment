@@ -3,6 +3,8 @@
     <head>
         <title>Evie's Music Room</title>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Explore Beyoncé's biography, achievements, awards, and the developer's current favourite song">
 
         <!-- Base styles -->
         <link rel="stylesheet" href="styles/base_style.css">
@@ -18,25 +20,25 @@
     <body>
         <header class="container">
             <h1>Beyoncé</h1>
-            <nav id="nav"></nav>        
+            <nav id="nav" aria-label="Main Navigation"></nav>
         </header>
 
         <main class="container">
             <!-- Gallery Banner -->
-            <div id="gallery" class="gallery"></div>
+            <div id="gallery" class="gallery" aria-live="polite"></div>
 
             <!-- Base Intro --> 
-                <section class="home-section">
-                    <p>
-                        Beyoncé Giselle Knowles-Carter (born September 4, 1981) is an American singer, songwriter, actress,
-                        and businesswoman. Known for her vocal ability, artistic reinventions, and live performances, 
-                        she is widely regarded as one of the most culturally significant figures of the 21st century. 
-                        Credited with shaping popular music, Beyoncé is often deemed one of the greatest entertainers of all time.
-                    </p>
-                </section>
+            <section class="home-section" aria-label="About Beyoncé">
+                <p>
+                    Beyoncé Giselle Knowles-Carter (born September 4, 1981) is an American singer, songwriter, actress,
+                    and businesswoman. Known for her vocal ability, artistic reinventions, and live performances,
+                    she is widely regarded as one of the most culturally significant figures of the 21st century.
+                    Credited with shaping popular music, Beyoncé is often deemed one of the greatest entertainers of all time.
+                </p>
+            </section>
 
             <!-- Awards and Honours -->
-            <section class="home-section">
+            <section class="home-section" aria-label="Awards & Achievements">
                 <div class="awards">
                     <ul>
                         <li>35 Grammy Awards</li>
@@ -48,24 +50,23 @@
             </section>
 
             <!-- Current Favourite Song -->
-            <div class="favourite-song">
-                <h1> Evie's Current Favourite Song </h1>
+            <section class="favourite-song" aria-labelledby="fav-song-heading">
+                <h2 id="fav-song-heading"> Evie's Current Favourite Song </h2>
                 <div class="vinyl-wrapper">
                     <div class="album-art">
-                        <img id="fav-song-image" src="" alt="">
+                        <img id="fav-song-image" src="" alt="Album artwork for the current favourite song">
                     </div>
 
-                    <div class="turntable">
+                    <div class="turntable" aria-hidden="true">
                         <div class="vinyl">
                             <div class="label"></div>
                         </div>
                     </div>
 
                 </div>
-                <h2 id="fav-song-title"></h2>
+                <h3 id="fav-song-title"></h3>
                 <p id="fav-song-album"></p>
-            </div>
-                        
+            </section>
         </main>
 
         <footer class="container">

@@ -3,6 +3,8 @@
     <head>
         <title>Evie's Music Room</title>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Explore Beyoncé and Destiny's Child albums, singles, and tours.">
 
         <!-- Base styles -->
         <link rel="stylesheet" href="styles/base_style.css">
@@ -20,18 +22,18 @@
     <body>
         <header class="container">
             <h1>Beyoncé</h1>
-            <nav id="nav"></nav>
+            <nav id="nav" aria-label="Main Navigation"></nav>
         </header>
 
         <main class="container">
             <!-- Artist Selection -->
             <div class="tabs">
-                <button class="tab-btn active" data-artist="destinys-child">Destiny's Child</button>
-                <button class="tab-btn" data-artist="beyonce">Beyoncé</button>
+                <button class="tab-btn active" aria-controls="panel-destinys-child" data-artist="destinys-child">Destiny's Child</button>
+                <button class="tab-btn" aria-controls="panel-beyonce" data-artist="beyonce">Beyoncé</button>
             </div>
 
             <!-- Category Dropdown for Album/Singles/Tours -->
-            <div class="category-controls">
+            <div class="category-controls" aria-labelledby="category-title">
                 <div class="dropdown-wrapper">
                     <select id="category-select">
                         <option value="albums">Albums</option>
@@ -41,7 +43,7 @@
                 </div>
             </div>
 
-            <div class="content" id="content"></div>
+            <div class="content" id="content" aria-live="polite"></div>
 
             <!-- Track List Modal for Albums-->
             <div class="modal-overlay hidden" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">

@@ -17,7 +17,6 @@ const data = {
 let activeArtist = "destinys-child";
 let activeCategory = "albums";
 
-
 // Handle rendering the content for the page, based on user's selection
 function renderDiscography() {
     const content = document.getElementById("content");
