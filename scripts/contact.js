@@ -1,48 +1,64 @@
 // Handle contact form validation
-async function validateForm() {
+async function validateForm(event) {
+    event.preventDefault(); // stops the page refresh
+
+    const isNameValid = validateName();
     const isEmailValid = validateEmail();
-    if (!isEmailValid) {
-        return false; // stop form submission
+    if (!isEmailValid || !isNameValid) {
+        return false;
     }
 
     const fullName = document.getElementById("fullName").value.trim();
     const email = document.getElementById("email").value.trim();
 
     try {
-        // Send POST request to the mailing list server with the user's input
         const response = await fetch("https://mudfoot.doc.stu.mmu.ac.uk/ash/api/mailinglist", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                name: fullName,
-                email: email
-            })
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({ name: fullName, email: email })
         });
 
         if (!response.ok) {
+            const errorText = await response.text();
+            console.error("Server error:", errorText);
             throw new Error("Network response was not ok");
         }
 
-        // Handle success response with alert.
+
         const data = await response.json();
         console.log("Success:", data);
         alert("You have been added to the mailing list!");
 
-        document.querySelector(".mailing-form").reset(); //reset form on success
+        document.querySelector(".mailing-form").reset();
     } catch (error) {
-        // Catch error and alert the user
         console.error("Error:", error);
         alert("There was a problem adding you to the mailing list.");
-        // Form is not reset, so they can amend their inputs and retry.
     }
 
     return false;
 }
 
+// Validate name
+function validateName() {
+    const nameInput = document.getElementById("fullName");
+    const nameError = document.getElementById("nameError");
+    const name = nameInput.value.trim();
 
-// Handle validating user's email
+    nameError.textContent = "";
+    nameError.style.display = "none";
+
+    const fullNameRegex = /^[A-Za-z][A-Za-z'-]*(?: [A-Za-z][A-Za-z'-]*)+$/;
+
+    if (!fullNameRegex.test(name)) {
+        nameError.textContent = "Invalid full name.";
+        nameError.style.display = "block";
+        return false;
+    }
+
+    return true;
+}
+
+// Validate email
 function validateEmail() {
     const emailInput = document.getElementById("email");
     const emailError = document.getElementById("emailError");
@@ -62,8 +78,11 @@ function validateEmail() {
     return true;
 }
 
+// Clear errors on input
+document.getElementById("fullName").addEventListener("input", () => {
+    document.getElementById("nameError").style.display = "none";
+});
+
 document.getElementById("email").addEventListener("input", () => {
-    const emailError = document.getElementById("emailError");
-    emailError.textContent = "";
-    emailError.style.display = "none";
+    document.getElementById("emailError").style.display = "none";
 });

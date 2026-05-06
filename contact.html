@@ -26,11 +26,12 @@
 
         <main class="container">
             <!-- Contact Mailing Form -->
-            <form class="mailing-form" action="#" onsubmit="return validateForm()" aria-label="Contact Form">
+            <form class="mailing-form" action="#" onsubmit="validateForm(event)" aria-label="Contact Form">
                 <h2> Sign Up to our mailing list!</h2>
 
                 <label for="fullName">Full Name</label>
-                <input type="text" id="fullName" name="fullName" placeholder="Full Name" required>
+                <input type="text" id="fullName" name="fullName" placeholder="Full Name" required aria-describedby="nameError">
+                <span id="nameError" class="error" aria-live="polite"></span>
 
                 <label for="email">Email</label>
                 <input type="text" id="email" name="email" placeholder="Email" required aria-describedby="emailError">
