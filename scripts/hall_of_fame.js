@@ -1,3 +1,9 @@
+// Display an error message in the HOF error element
+function showHofError(message) {
+    const hofError = document.getElementById("hofError");
+    if (hofError) hofError.textContent = message;
+}
+
 // Handle validating the year selection form
 async function validateHofForm() {
     event.preventDefault();  // stops page reload completely
@@ -31,9 +37,8 @@ async function validateHofForm() {
         renderHofResults(data);
 
     } catch (error) {
-        // Catch error and alert the user
         console.error("Error:", error);
-        alert("There was a problem fetching Hall of Fame data.");
+        showHofError("There was a problem fetching Hall of Fame data.");
     }
 
     return false;
@@ -155,6 +160,6 @@ async function loadInitialYear() {
 
     } catch (error) {
         console.error("Error:", error);
-        alert("There was a problem fetching initial Hall of Fame data.");
+        showHofError("There was a problem fetching initial Hall of Fame data.");
     }
 }

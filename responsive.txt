@@ -1,0 +1,8 @@
+The site uses a flexible layout throughout, allowing a consistent, clear view across devices.
+Navigation uses a flexbox with flex-wrap so links reflow naturally on smaller screens.
+The page content sits inside a max-width container with auto margin to keep it central.
+This cap ensures the page isn't too stretch on wider screens and is central for the user to view, but also can adapt for smaller screens.
+Utilising a CSS Grid with auto-fill and minmax() for the Discography and Hall of Fame cards, allows columns to collapse automatically for better viewing across devices.
+I also made use of clamp() for headings font size to scale more fluidly between viewport widths.
+There are some mobile specific media queries to adjust navigation padding and the era cards. This could be greatly improved and expanded across the CSS for other pages to ensure there is consistent resizing and scaling for differing viewports.
+I tested these behaviours through Chrome Devtools and emulated using the website across mobile phones, tablets and desktop. I also used the manual resizing to further test my responsiveness and continually reviewed the changes and amended as I developed the site.

@@ -40,7 +40,7 @@
    FORM SUBMISSION
 ------------------------------ */
 .hof-form input[type="submit"] {
-    width: 10%;
+    width: 20%;
     padding: 0.8rem;
     background: gold;
     color: white;
