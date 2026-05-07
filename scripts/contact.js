@@ -11,31 +11,39 @@ async function validateForm(event) {
     const fullName = document.getElementById("fullName").value.trim();
     const email = document.getElementById("email").value.trim();
 
+    let response;
     try {
-        const response = await fetch("https://mudfoot.doc.stu.mmu.ac.uk/ash/api/mailinglist", {
+        response = await fetch("https://mudfoot.doc.stu.mmu.ac.uk/ash/api/mailinglist", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({ name: fullName, email: email })
         });
-
-        if (!response.ok) {
-            const errorText = await response.text();
-            console.error("Server error:", errorText);
-            throw new Error("Network response was not ok");
-        }
-
-
-        const data = await response.json();
-        console.log("Success:", data);
-        alert("You have been added to the mailing list!");
-
-        document.querySelector(".mailing-form").reset();
     } catch (error) {
         console.error("Error:", error);
-        alert("There was a problem adding you to the mailing list.");
+        showFormStatus("Could not reach the server. Please check your connection", "error");
     }
 
-    return false;
+    // Handle error response from server
+    if (!response.ok) {
+        const errorText = await response.json().catch(() => null);
+        const responseMessage = errorData?.message || errorData?.error || response.statusText;
+        console.error("Server error:", responseMessage);
+        showFormStatus(`There was a problem signing you up: ${responseMessage}`, "error");
+        return;
+    }
+
+    const data = await response.json();
+    console.log("Success:", data);
+    showFormStatus("You have been added to the mailing list!", "success");
+    document.querySelector(".mailing-form").reset();
+
+}
+
+// Show status of the form (error/success)
+function showFormStatus(message, type) {
+    const formStatus = document.getElementById("formStatus");
+    formStatus.textContent = message;
+    formStatus.className = type;
 }
 
 // Validate name
@@ -81,8 +89,14 @@ function validateEmail() {
 // Clear errors on input
 document.getElementById("fullName").addEventListener("input", () => {
     document.getElementById("nameError").style.display = "none";
+    document.getElementById("formStatus").textContent = "";
+    document.getElementById("formStatus").className = "";
 });
 
 document.getElementById("email").addEventListener("input", () => {
     document.getElementById("emailError").style.display = "none";
+    document.getElementById("formStatus").textContent = "";
+    document.getElementById("formStatus").className = "";
 });
+
+document.querySelector(".mailing-form").addEventListener("submit", validateForm);

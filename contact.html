@@ -26,7 +26,7 @@
 
         <main class="container">
             <!-- Contact Mailing Form -->
-            <form class="mailing-form" action="#" onsubmit="validateForm(event)" aria-label="Contact Form">
+            <form class="mailing-form" aria-label="Contact Form">
                 <h2> Sign Up to our mailing list!</h2>
 
                 <label for="fullName">Full Name</label>
@@ -36,6 +36,8 @@
                 <label for="email">Email</label>
                 <input type="text" id="email" name="email" placeholder="Email" required aria-describedby="emailError">
                 <span id="emailError" class="error" aria-live="polite"></span>
+
+                <div id="formStatus" aria-live="polite"></div>
 
                 <input type="submit" value="Sign up">
             </form>
