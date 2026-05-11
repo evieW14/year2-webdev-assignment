@@ -21,12 +21,13 @@ async function validateForm(event) {
     } catch (error) {
         console.error("Error:", error);
         showFormStatus("Could not reach the server. Please check your connection", "error");
+        return;
     }
 
     // Handle error response from server
     if (!response.ok) {
         const errorText = await response.json().catch(() => null);
-        const responseMessage = errorData?.message || errorData?.error || response.statusText;
+        const responseMessage = errorText?.message || errorText?.error || response.statusText;
         console.error("Server error:", responseMessage);
         showFormStatus(`There was a problem signing you up: ${responseMessage}`, "error");
         return;

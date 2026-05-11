@@ -113,9 +113,16 @@ function renderHofResults(data) {
             `;
         }
 
+        const imgSrc = entry.image?.source && entry.image?.title
+            ? entry.image.source
+            : "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Rock_and_Roll_Hall_of_Fame_-_Joy_of_Museums_1.jpg/960px-Rock_and_Roll_Hall_of_Fame_-_Joy_of_Museums_1.jpg";
+        const imgAlt = entry.image?.title || "Rock and Roll Hall Of Fame";
+
+
         // Images returned from the server are not accessible so replaced with static Hall of Fame image
         card.innerHTML = `
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Rock_and_Roll_Hall_of_Fame_-_Joy_of_Museums_1.jpg/960px-Rock_and_Roll_Hall_of_Fame_-_Joy_of_Museums_1.jpg" alt="${entry.image.title}">
+           <img src="${imgSrc}" alt="${imgAlt}">
+
             <div class="hof-info">
                 <h3>
                     <a href="${entry.band.url}" target="_blank">${entry.band.name}</a>

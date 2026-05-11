@@ -19,15 +19,6 @@ window.addEventListener("load", () => {
     ];
     
     renderGallery(galleryImages, "gallery");
-
-    const favouriteSong = { 
-        title: "Ya-Ya",
-        album: "Cowboy Carter",
-        image: "images/Cowboy_Carter.png",
-        alt: "Beyonce Cowboy Carter"
-    }; 
-    
-    setFavouriteSong(favouriteSong);
 });
 
 // Handle rendering the gallery images for the home page
@@ -49,21 +40,4 @@ function renderGallery(images, elementId) {
     } 
 
     document.getElementById(elementId).innerHTML = output;
-}
-
-// Handle favourite song section
-function setFavouriteSong(song) {
-    const titleElement = document.getElementById("fav-song-title");
-    const albumElement = document.getElementById("fav-song-album");
-    const imageElement = document.getElementById("fav-song-image");
-
-    if (!titleElement || !albumElement || !imageElement) {
-        console.error("One or more elements for the favourite song section are missing.");
-        return;
-    }
-
-    document.getElementById("fav-song-title").textContent = song.title;
-    document.getElementById("fav-song-album").textContent = song.album;
-    document.getElementById("fav-song-image").src = song.image;
-    document.getElementById("fav-song-image").alt = song.alt;
 }
